@@ -3,22 +3,31 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TagsSection = styled.section`
-  
+  background: #FFFFFF;
 `;
 const NotesSection = styled.section``;
 const CategorySection = styled.section``;
 const NumberPadSection = styled.section``;
+const TagList = styled.ol`
+  > li{
+    background: #D9D9D9;
+    border-radius: 18px;
+    display: inline-block;
+    padding: 3px 18px;
+    font-size: 14px;
+  }
+`;
 
 function Money() {
   return (
     <Layout>
       <TagsSection>
-        <ol>
+        <TagList>
           <li>衣</li>
           <li>食</li>
           <li>住</li>
           <li>行</li>
-        </ol>
+        </TagList>
         <button>新增标签</button>
       </TagsSection>
       <NotesSection>
