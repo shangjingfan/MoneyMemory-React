@@ -5,9 +5,11 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import styled from 'styled-components';
-import Nav from 'components/Nav';
-import Layout from 'components/Layout';
+import Statistics from './views/Statistics';
+import Money from './views/Money';
+import NoMatch from './views/NoMatch';
+import Tags from './views/Tags';
+
 
 
 export default function App() {
@@ -32,37 +34,23 @@ export default function App() {
   );
 }
 
-function Statistics() {
-  return (
-    <Layout>
-      <h2>统计页面</h2>
-    </Layout>
-  );
-}
 
-function Tags() {
-  return (
-    <Layout>
-      <h2>标签页面</h2>
-    </Layout>
-  );
-}
 
-function Money() {
-  return (
-    <Layout>
-      <h2>记账页面</h2>
-    </Layout>
 
-  );
-}
 
-function NoMatch() {
-  return (
-    <div>
-      <h3>
-        404：页面不存在，你输错了
-      </h3>
-    </div>
-  );
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
