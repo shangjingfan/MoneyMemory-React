@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
 
 const Wrapper = styled.section`
   font-size: 24px;
@@ -24,19 +24,23 @@ const Wrapper = styled.section`
     }  
   }
 `;
-const CategorySection: React.FC = () => {
+type Props = {
+  value: '-' | '+';
+  onChange: (value: '-' | '+') => void;
+}
+
+const CategorySection: React.FC<Props> = (props) => {
   const categoryMap = {'-': '支出', '+': '收入'};
   type Keys = keyof typeof categoryMap;
   const categoryList: Keys[] = ['+', '-'];
-  // const [categoryList] = useState<('-' | '+')[]>(['+', '-']);
-  const [category, setCategory] = useState('+');
+  const category = props.value;
   return (
     <Wrapper>
       <ul>
         {categoryList.map(t => {
             return (<li className={category === t ? 'selected' : ''}
-                onClick={() => setCategory(t)}
-                key={t}
+                        onClick={() => props.onChange(t)}
+                        key={t}
             >{categoryMap[t]}</li>);
           }
         )}
