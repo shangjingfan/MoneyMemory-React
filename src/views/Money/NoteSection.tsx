@@ -25,7 +25,6 @@ const Wrapper = styled.section`
 
 const NoteSection: React.FC = () => {
   const [note, setNote] = useState('');
-  console.log(note);
   const refInput = useRef<HTMLInputElement>(null);
   const onBlur = () => {
     if (refInput.current !== null) {
