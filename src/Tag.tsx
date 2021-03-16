@@ -29,6 +29,7 @@ const InputWrapper = styled.div`
 
 const Tag: React.FC = () => {
   const {findTag, updateTag, deleteTag} = useTags();
+  console.log('useTags---Tag.tsx')
   let {id} = useParams<Params>();
   const tag = findTag(parseInt(id));
   const tagContent = () => (
@@ -64,6 +65,4 @@ const Tag: React.FC = () => {
     </Layout>
   );
 };
-
-
 export {Tag};
