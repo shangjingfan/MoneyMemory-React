@@ -1,7 +1,6 @@
 import {useEffect, useRef} from 'react';
 
-
-const useUpadate = (fn: () => void, deps: any[]) => {
+const useUpdate = (fn: () => void, deps: any[]) => {
   const count = useRef(0);
   useEffect(() => {
     count.current += 1;
@@ -14,4 +13,4 @@ const useUpadate = (fn: () => void, deps: any[]) => {
   }, deps);
 };
 
-export {useUpadate};
+export {useUpdate};

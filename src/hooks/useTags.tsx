@@ -1,6 +1,6 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {createId} from 'lib/createId';
-import {useUpadate} from './hooks/useUpdate';
+import {useUpdate} from './useUpdate';
 
 type Tag = {
   id: number;
@@ -21,8 +21,7 @@ const useTags = () => {
     setTags(localTags);
   }, []);
 
-  useUpadate(()=>{
-    console.log(tags);
+  useUpdate(()=>{
     window.localStorage.setItem('tags', JSON.stringify(tags));
   }, [tags])
 
