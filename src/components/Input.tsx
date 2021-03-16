@@ -12,7 +12,7 @@ const Label = styled.label`
       //flex-grow: 1;
       display: block;
       width: 100%;
-      height: 72px;
+      height: 44px;
       background: none;
       border: none;
     }
