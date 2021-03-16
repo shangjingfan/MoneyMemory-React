@@ -5,12 +5,12 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import Statistics from './views/Statistics';
-import Money from './views/Money';
-import NoMatch from './views/NoMatch';
-import Tags from './views/Tags';
+import Statistics from 'views/Statistics';
+import Money from 'views/Money';
+import NoMatch from 'views/NoMatch';
+import Tags from 'views/Tags';
 import styled from 'styled-components';
-import {Tag} from './Tag';
+import {Tag} from 'Tag';
 
 const AppWrapper = styled.div`
   color: #333;
