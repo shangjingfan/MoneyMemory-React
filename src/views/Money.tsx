@@ -18,7 +18,8 @@ const defaultFormData = {
   category: '-' as Category,
   amount: 0
 };
-function Money(){
+
+function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   const {addRecord} = useRecords();
 
@@ -29,9 +30,11 @@ function Money(){
     });
   };
   const submit = () => {
-    addRecord(selected);
-    alert('保存成功');
-    setSelected(defaultFormData);
+    if (addRecord(selected)) {
+      alert('保存成功');
+      setSelected(defaultFormData);
+    }
+
   };
 
   return (
@@ -52,4 +55,5 @@ function Money(){
     </MyLayout>
   );
 }
+
 export default Money;
