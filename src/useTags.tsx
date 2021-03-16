@@ -24,26 +24,12 @@ const useTags = () => {
     }
     return result;
   };
-  const updateTag = (id: number, obj: { name: string }) => {
-    // 1. 获取要改的tag下标
-    const index = findTagIndex(id);
-    // 2. 深拷贝tags，React的不可变数据原则：不要改原数据
-    const tagsClone = JSON.parse(JSON.stringify(tags));
-    // 3. 把tagsClone的第index个对象替换成新的对象，新对象id不变，只变name；splice改变原数组，返回值是修改的内容组成的数组
-    tagsClone.splice(index, 1, {id: id, name: obj.name});
-
-    setTags(tagsClone);
+  const updateTag = (id: number, name: string ) => {
+    setTags(tags.map(tag => tag.id === id ? {id, name} : tag));
   };
-  const deleteTag = (id:number) =>{
-    // 1. 获取要改的tag下标
-    const index = findTagIndex(id);
-    // 2. 深拷贝tags，React的不可变数据原则：不要改原数据
-    const tagsClone = JSON.parse(JSON.stringify(tags));
-    // 3. 把tagsClone的第index个对象删除
-    tagsClone.splice(index, 1, );
-
-    setTags(tagsClone);
-  }
+  const deleteTag = (id: number) => {
+    setTags(tags.filter(tag => tag.id !== id));
+  };
   return {
     tags,
     setTags,
