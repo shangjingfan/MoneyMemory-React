@@ -5,7 +5,6 @@ const Wrapper = styled.section`
   font-size: 24px;
   > ul{
     display: flex;
-    background: #c4c4c4;
     > li{
       width: 50%;
       text-align: center;
@@ -30,22 +29,23 @@ type Props = {
 }
 
 const CategorySection: React.FC<Props> = (props) => {
-  const categoryMap = {'-': '支出', '+': '收入'};
+  const categoryMap = { '-': '支出', '+': '收入' };
   type Keys = keyof typeof categoryMap;
   const categoryList: Keys[] = ['+', '-'];
   const category = props.value;
   return (
+
     <Wrapper>
       <ul>
         {categoryList.map(t => {
-            return (<li className={category === t ? 'selected' : ''}
-                        onClick={() => props.onChange(t)}
-                        key={t}
-            >{categoryMap[t]}</li>);
-          }
+          return (<li className={category === t ? 'selected' : ''}
+            onClick={() => props.onChange(t)}
+            key={t}
+          >{categoryMap[t]}</li>);
+        }
         )}
       </ul>
     </Wrapper>
   );
 };
-export {CategorySection};
+export { CategorySection };
