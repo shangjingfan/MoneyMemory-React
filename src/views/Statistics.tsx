@@ -26,7 +26,9 @@ const Item = styled.div`
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
   const { records } = useRecords();
-  const { getName } = useTags()
+  const { getName } = useTags();
+  const selectedRecords = records.filter(r => r.category === category )
+  
   return (
     <Layout>
       <CategoryWrapper>
@@ -36,7 +38,7 @@ function Statistics() {
       </CategoryWrapper>
 
       <div>
-        {records.map(r => {
+        {selectedRecords.map(r => {
           return (<Item>
             <div className='tags'>
               {r.tagIds.map(id => <span>{getName(id)}</span>)}
