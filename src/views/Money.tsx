@@ -39,6 +39,7 @@ function Money() {
 
   return (
     <MyLayout className="xxx">
+      {selected.amount}
       <TagsSection value={selected.tagIds}
                    onChange={tagIds => onChange({tagIds})}
       />
