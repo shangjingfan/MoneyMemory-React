@@ -9,10 +9,24 @@ import day from 'dayjs';
 const CategoryWrapper = styled.div`
   background: white;
 `;
+
+const Item = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 16px;
+  > .note{
+    margin-right: auto;
+    margin-left: 16px;
+    color: #999;
+  }
+`;
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
-  const {records} = useRecords();
-  const {getName} = useTags()
+  const { records } = useRecords();
+  const { getName } = useTags()
   return (
     <Layout>
       <CategoryWrapper>
@@ -23,13 +37,17 @@ function Statistics() {
 
       <div>
         {records.map(r => {
-          return (<div>
-            {r.tagIds.map(id => <span>{getName(id)}</span>)} 
-            <hr/>
-            {r.amount}
-            <hr/>
-            {day(r.createAt).format('YYYY年MM月DD日')}
-            </div>)
+          return (<Item>
+            <div className='tags'>
+              {r.tagIds.map(id => <span>{getName(id)}</span>)}
+
+            </div>
+            {r.note && <div className="note">{r.note}</div>}
+            <div className="amount">
+              ￥{r.amount}
+            </div>
+            {/* {day(r.createAt).format('YYYY年MM月DD日')} */}
+          </Item>)
         })}
       </div>
     </Layout>
