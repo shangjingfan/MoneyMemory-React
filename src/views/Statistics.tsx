@@ -4,8 +4,6 @@ import { CategorySection } from './Money/CategorySection';
 import styled from 'styled-components';
 import { useRecords } from 'hooks/useRecords';
 import { useTags } from 'hooks/useTags';
-import day from 'dayjs';
-
 const CategoryWrapper = styled.div`
   background: white;
 `;
@@ -48,7 +46,6 @@ function Statistics() {
             <div className="amount">
               ￥{r.amount}
             </div>
-            {/* {day(r.createAt).format('YYYY年MM月DD日')} */}
           </Item>)
         })}
       </div>
