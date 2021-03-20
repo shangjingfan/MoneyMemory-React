@@ -45,7 +45,12 @@ const useTags = () => {
   const addTag = () => {
     const tagName = window.prompt('请输入标签名');
     if (tagName !== null && tagName !== '') {
-      setTags([...tags, {id: createId(), name: tagName}]);
+      const index = tags.map(tag => tag.name).indexOf(tagName);
+      if (index < 0) {
+        setTags([...tags, {id: createId(), name: tagName}]);
+      } else {
+        window.alert("标签名重复")
+      }
     }
   };
   const getName = (id: number) => {
