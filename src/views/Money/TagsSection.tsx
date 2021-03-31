@@ -12,11 +12,12 @@ const Wrapper = styled.section`
   align-items: flex-start;
   > ol{ margin: 0 -12px;
     > li{
-      background: #D9D9D9; border-radius: 18px;
+      background: #d2dbe2; border-radius: 18px;
       display: inline-block; padding: 3px 18px;
       font-size: 14px; margin: 8px 12px;
       &.selected {
-        background: #f60;
+        background: #94a9ba;
+        color: white;
       }
     }
   }

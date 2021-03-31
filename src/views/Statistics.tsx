@@ -1,9 +1,10 @@
 import Layout from '../components/Layout';
-import React, { useState } from 'react';
-import { CategorySection } from './Money/CategorySection';
+import React, {useState} from 'react';
+import {CategorySection} from './Money/CategorySection';
 import styled from 'styled-components';
-import { useRecords } from 'hooks/useRecords';
-import { useTags } from 'hooks/useTags';
+import {useRecords} from 'hooks/useRecords';
+import {useTags} from 'hooks/useTags';
+
 const CategoryWrapper = styled.div`
   background: white;
 `;
@@ -15,23 +16,26 @@ const Item = styled.div`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
+  border-bottom: 1px solid #bac7d2;
+
   > .note{
     margin-right: auto;
     margin-left: 16px;
     color: #999;
   }
 `;
+
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
-  const { records } = useRecords();
-  const { getName } = useTags();
-  const selectedRecords = records.filter(r => r.category === category )
-  
+  const {records} = useRecords();
+  const {getName} = useTags();
+  const selectedRecords = records.filter(r => r.category === category);
+
   return (
     <Layout>
       <CategoryWrapper>
         <CategorySection value={category}
-          onChange={category => setCategory(category)}
+                         onChange={category => setCategory(category)}
         />
       </CategoryWrapper>
 
@@ -46,10 +50,11 @@ function Statistics() {
             <div className="amount">
               ￥{r.amount}
             </div>
-          </Item>)
+          </Item>);
         })}
       </div>
     </Layout>
   );
 }
+
 export default Statistics;
